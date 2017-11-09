@@ -9,19 +9,23 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MessagesComponent } from './messages.component';
+import { LoginComponent } from './login.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register.component';
 import { ApiService} from './api.service';
+import { AuthService} from './auth.service';
 
 const routes =[
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+  {path:'login',component:LoginComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ const routes =[
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [ApiService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
