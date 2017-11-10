@@ -22,4 +22,8 @@ export class ApiService{
       }
     )
   }
+
+  getProfile(id){
+    return this.http.get('http://localhost:3000/profile'+id)
+  }
 }
