@@ -4,10 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService{
   messages = []
+  path = 'http://localhost:3000/auth'
   constructor(private http:Http){}
 
   registerUser(registerData){
-    this.http.post('http://localhost:3000/register',registerData).subscribe(
+    this.http.post(this.path+'/register',registerData).subscribe(
       res=>{
        // this.messages = res.json()
       }
@@ -15,7 +16,7 @@ export class AuthService{
   }
 
   loginUser(loginData){
-    this.http.post('http://localhost:3000/login',loginData).subscribe(
+    this.http.post(this.path+'/login',loginData).subscribe(
       res=>{
        // this.messages = res.json()
        console.log(res)
