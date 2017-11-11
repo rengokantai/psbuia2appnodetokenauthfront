@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages.component';
 import { UsersComponent } from './users.component';
 import { LoginComponent } from './login.component';
 import { ProfileComponent } from './profile.component';
+import { PostComponent } from './post.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register.component';
 import { ApiService} from './api.service';
@@ -20,6 +21,7 @@ import { AuthService} from './auth.service';
 
 const routes =[
   {path:'register',component:RegisterComponent},
+  {path:'',component:PostComponent},
   {path:'login',component:LoginComponent},
   {path:'users',component:UsersComponent},
   {path:'profile/:id',component:ProfileComponent}
@@ -32,7 +34,8 @@ const routes =[
     RegisterComponent,
     LoginComponent,
     UsersComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
