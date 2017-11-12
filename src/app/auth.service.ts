@@ -26,7 +26,7 @@ export class AuthService{
       res=>{
        // this.messages = res.json()
        console.log(res)
-       localStorage.setItem('token',res.token)
+       localStorage.setItem(this.TOKEN_KEY,res.token)
       }
     )
   }

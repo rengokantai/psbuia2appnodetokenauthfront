@@ -53,7 +53,7 @@ const routes =[
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [ApiService,AuthService,{provide: HTTP_INTERCEPTORS,useClass:AuthInterceptorService}],
+  providers: [ApiService,AuthService,{provide: HTTP_INTERCEPTORS,multi:true,useClass:AuthInterceptorService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
