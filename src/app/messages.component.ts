@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ApiService } from './api.service';
+import {ActivatedRoute} from '@angular/router'
 
 @Component({
   providers:[
@@ -14,8 +15,9 @@ import { ApiService } from './api.service';
 })
 export class MessagesComponent {
   title = 'app';
-  constructor(private apiService: ApiService){}
+  constructor(private apiService: ApiService,private route:ActivatedRoute){}
   ngOnInit(){
-    this.apiService.getMessages();
+    var userID = this.route.snapshot.params.id
+    this.apiService.getMessages(userID);
   }
 }

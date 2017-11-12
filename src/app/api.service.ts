@@ -5,18 +5,27 @@ import { Injectable } from '@angular/core';
 export class ApiService{
   messages = []
   users = []
+  path ='http://localhost:3000'
   constructor(private http:Http){}
 
-  getMessages(){
-    this.http.get('http://localhost:3000/posts').subscribe(
+  getMessages(userId){
+    this.http.get(this.path+'/posts/'+userId).subscribe(
       res=>{
         this.messages = res.json()
       }
     )
   }
+  postMessage(message){
+    this.http.post(this.path+'/post',message).subscribe(
+      res=>{
+        
+      }
+    )
+  }
+
 
    getUsers(){
-    this.http.get('http://localhost:3000/users').subscribe(
+    this.http.get(this.path+'/users').subscribe(
       res=>{
         this.users = res.json()
       }
@@ -24,6 +33,6 @@ export class ApiService{
   }
 
   getProfile(id){
-    return this.http.get('http://localhost:3000/profile'+id)
+    return this.http.get(this.path+'/profile'+id)
   }
 }

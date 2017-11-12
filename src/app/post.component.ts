@@ -18,10 +18,10 @@ New Post
   <mat-card-content>
   <form>
   <mat-input-container>
-    <input [(ngModel)]="postMsg" name="post" matInput placeholder="Post message">
+    <input [(ngModel)]="postMsg" name="description" matInput placeholder="Post message">
   </mat-input-container>
   
-  <button (click)="post()" mat-raised-button color="primary">register</button>
+  <button (click)="post()" mat-raised-button color="primary">post</button>
   </form>
   </mat-card-content>
   </mat-card>
@@ -31,5 +31,9 @@ New Post
 export class PostComponent {
 
   constructor(private apiService: ApiService){}
+  postMsg=''
+  post(){
+    this.apiService.postMessage({msg:this.postMsg})
+  }
 
 }
