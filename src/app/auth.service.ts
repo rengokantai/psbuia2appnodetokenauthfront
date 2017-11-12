@@ -22,9 +22,12 @@ export class AuthService{
   }
 
   registerUser(registerData){
-    this.http.post(this.path+'/register',registerData).subscribe(
+    this.http.post<any>(this.path+'/register',registerData).subscribe(
       res=>{
        // this.messages = res.json()
+       console.log(res)
+       //localStorage.setItem(this.TOKEN_KEY,res.token)
+       this.saveToken(res.token)
       }
     )
   }
@@ -34,9 +37,14 @@ export class AuthService{
       res=>{
        // this.messages = res.json()
        console.log(res)
-       localStorage.setItem(this.TOKEN_KEY,res.token)
+       //localStorage.setItem(this.TOKEN_KEY,res.token)
+       this.saveToken(res.token)
       }
     )
+  }
+
+  saveToken(token){
+    localStorage.setItem(this.TOKEN_KEY,token)
   }
 
 }
