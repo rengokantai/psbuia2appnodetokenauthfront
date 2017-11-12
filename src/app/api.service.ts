@@ -33,6 +33,6 @@ export class ApiService{
   }
 
   getProfile(id){
-    return this.http.get(this.path+'/profile'+id)
+    return this.http.get(this.path+'/profile/'+id)
   }
 }
