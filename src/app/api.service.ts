@@ -22,8 +22,6 @@ export class ApiService{
       }
     )
   }
-
-
    getUsers(){
     this.http.get<any>(this.path+'/users').subscribe(
       res=>{
